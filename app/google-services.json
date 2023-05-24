@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "301764804901",
+    "project_id": "gazeodeh1-3c394",
+    "storage_bucket": "gazeodeh1-3c394.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301764804901:android:d00398229ecd998b731acc",
+        "android_client_info": {
+          "package_name": "com.example.app_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301764804901-aroifpul0pprv0akve8bklbqc8flifg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8iiocfPkZ4LEcgD4h4GhGVQUNDXIb5RA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301764804901-aroifpul0pprv0akve8bklbqc8flifg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

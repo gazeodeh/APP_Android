@@ -1,4 +1,4 @@
-package com.example.app_android;
+package com.example.app_android.usermanagment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.app_android.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,9 +94,9 @@ public class SignupFragment extends Fragment {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginbenefactorfragment loginbenefactorfragment=new loginbenefactorfragment();
+                LoginFragment LoginFragment=new LoginFragment();
                 FragmentManager manager=getFragmentManager();
-                manager.beginTransaction().replace(R.id.frameLayout,loginbenefactorfragment,loginbenefactorfragment.getTag()).commit();
+                manager.beginTransaction().replace(R.id.frameLayout,LoginFragment,LoginFragment.getTag()).commit();
 
             }
         });
@@ -109,7 +115,7 @@ public class SignupFragment extends Fragment {
 
                 createUser();
 
-                Intent i=new Intent(getActivity(), privatedatabenefactotactivity.class);
+                Intent i=new Intent(getActivity(), privatedetailsActivity.class);
                 startActivity(i);
 
             }

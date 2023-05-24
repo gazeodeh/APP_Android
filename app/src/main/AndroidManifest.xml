@@ -15,7 +15,7 @@
             android:name=".framelayoutActivity"
             android:exported="false" />
         <activity
-            android:name=".privatedetailsActivity"
+            android:name=".usermanagment.privatedetailsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

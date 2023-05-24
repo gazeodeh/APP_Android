@@ -1,4 +1,4 @@
-package com.example.app_android;
+package com.example.app_android.usermanagment;
 
 import android.os.Bundle;
 
@@ -13,6 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.app_android.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,9 +52,9 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //forgot passfrag
-                forgetpassfragmentpenefactor forgetpassfragmentpenefactor=new forgetpassfragmentpenefactor();
+                ForgotpassFragment ForgotpassFragment=new ForgotpassFragment();
                 FragmentManager manager=getFragmentManager();
-                manager.beginTransaction().replace(R.id.frameLayout,forgetpassfragmentpenefactor,forgetpassfragmentpenefactor.getTag()).commit();
+                manager.beginTransaction().replace(R.id.frameLayout,ForgotpassFragment,ForgotpassFragment.getTag()).commit();
             }
         });
 
@@ -69,7 +75,6 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getContext(), "SOMTHING FAILED ! " + "", Toast.LENGTH_SHORT).show();
                     return;
                 }
-//FIRE BASE CONNECT
                 if (mAuth != null) {
                     mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
@@ -92,9 +97,9 @@ public class LoginFragment extends Fragment {
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signupbenefactorfragment signupbenefactorfragment=new signupbenefactorfragment();
+                SignupFragment SignupFragment=new SignupFragment();
                 FragmentManager manager=getFragmentManager();
-                manager.beginTransaction().replace(R.id.frameLayout,signupbenefactorfragment,signupbenefactorfragment.getTag()).commit();
+                manager.beginTransaction().replace(R.id.frameLayout,SignupFragment,SignupFragment.getTag()).commit();
             }
         });
     }

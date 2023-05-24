@@ -13,6 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link thingtheuserneedFragment#newInstance} factory method to
@@ -57,10 +62,10 @@ public class thingtheuserneedFragment extends Fragment {
                thingsuserneedclass thingsuserneed=new thingsuserneedclass(etfirst,etsecond,etthird,etfourth);
 
                db.collection("users")
-                       .add(per).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                       .add(thingsuserneed).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                            @Override
                            public void onSuccess(DocumentReference documentReference) {
-                               Toast.makeText(thingsuserneed.this, "data was saved", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(getContext(), "data was saved", Toast.LENGTH_SHORT).show();
 
                                //go to projects
                            }
@@ -68,7 +73,7 @@ public class thingtheuserneedFragment extends Fragment {
                            @Override
                            public void onFailure(@NonNull Exception e) {
 
-                               Toast.makeText(thingsuserneed.this, "data not saved try another data", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(getContext(), "data not saved try another data", Toast.LENGTH_SHORT).show();
                                //try to save
                                Log.e("",e.getMessage());
                            }

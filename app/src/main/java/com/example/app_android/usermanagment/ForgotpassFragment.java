@@ -1,4 +1,4 @@
-package com.example.app_android;
+package com.example.app_android.usermanagment;
 
 import android.os.Bundle;
 
@@ -12,6 +12,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.app_android.R;
+import com.google.android.gms.tasks.Task;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.FirebaseAuth;
+
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,12 +59,12 @@ public class ForgotpassFragment extends Fragment {
 
 
                 mAuth.sendPasswordResetEmail(emaill).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
+                 @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(getContext(), "Email Has send" + "", Toast.LENGTH_SHORT).show();
-                        loginbenefactorfragment Loginfragmentcoustumer=new loginbenefactorfragment();
+                        LoginFragment LoginFragment=new LoginFragment();
                         FragmentManager manager=getFragmentManager();
-                        manager.beginTransaction().replace(R.id.frameLayout,Loginfragmentcoustumer,Loginfragmentcoustumer.getTag()).commit();
+                        manager.beginTransaction().replace(R.id.frameLayout,LoginFragment,LoginFragment.getTag()).commit();
                     }
                 });
 
