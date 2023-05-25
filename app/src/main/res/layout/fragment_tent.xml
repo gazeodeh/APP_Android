@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mainpackage.TentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv1"
+            app:layout_constraintBottom_toTopOf="@+id/tv2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="149dp"
+            android:layout_height="0dp"
+            android:text="طريقه بناء الخيمه"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="87dp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:text="1.ضع الخشبتين طويلتين على شكل اكس على الاطراف كرر هذه الخطوه على اربع اخشاب بعدها ابعد بينهما وضع خشبه تمر على الاكسين وضع قطعه قماش على طول الخيمه "
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="232dp" />
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="650dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
