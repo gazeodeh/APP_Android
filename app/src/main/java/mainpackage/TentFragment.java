@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.app_android.MainFragment;
@@ -30,11 +31,13 @@ public class TentFragment extends Fragment {
     private String mParam2;
 
     private TextView tv1,tv2;
+
+    private Button bt;
     public TentFragment() {
-        tv1=getView().findViewById(R.id.tv1);
-        tv2=getView().findViewById(R.id.tv2);
+        tv1=getView().findViewById(R.id.textView2);
+        tv2=getView().findViewById(R.id.textView5);
         bt=getView().findViewById(R.id.bt);
-    }
+
 bt.setOnClickListener(new View.OnClickListener()
 
     {
@@ -42,11 +45,11 @@ bt.setOnClickListener(new View.OnClickListener()
         public void onClick (View view){
         MainFragment mainFragment = new MainFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
-
+        manager.beginTransaction().replace(R.id.frameLayout, mainFragment, mainFragment.getTag()).commit();
 
     }
-
+    });
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.

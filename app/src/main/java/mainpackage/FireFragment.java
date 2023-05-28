@@ -8,11 +8,11 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.app_android.MainFragment;
 import com.example.app_android.R;
-import com.example.app_android.thingsuserneedclass;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,24 +29,24 @@ public class FireFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-private TextView tv1,tv2;
-private Button bt;
+   private TextView tv1,tv2;
+    private Button bt;
     public FireFragment() {
-        tv1=getView().findViewById(R.id.tv1);
-        tv2=getView().findViewById(R.id.tv2);
+        tv1=getView().findViewById(R.id.tvf);
+        tv2=getView().findViewById(R.id.tvb);
         bt=getView().findViewById(R.id.bt1);
-    }
-bt.setOnClickListener(new View.OnClickListener()
 
-    {
+bt.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
 
-        public void onClick (View view){
-        MainFragment mainFragment = new MainFragment();
-        FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
+                              MainFragment MainFragment = new MainFragment();
+                              FragmentManager manager = getFragmentManager();
+                              manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
 
+                          }
+                      });}
 
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -76,9 +76,10 @@ bt.setOnClickListener(new View.OnClickListener()
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fire, container, false);
     }
+
+
 }

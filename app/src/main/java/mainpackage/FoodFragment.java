@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.app_android.MainFragment;
@@ -35,17 +36,18 @@ public class FoodFragment extends Fragment {
         textView=getView().findViewById(R.id.textView3);
         textView1=getView().findViewById(R.id.textView4);
         bt=getView().findViewById(R.id.button);
-    }
+
 bt.setOnClickListener(new View.OnClickListener()
 
     {
-
         public void onClick (View view){
         MainFragment mainFragment = new MainFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
+        manager.beginTransaction().replace(R.id.frameLayout, mainFragment, mainFragment.getTag()).commit();
 
 
+    }
+    });
     }
 
     /**

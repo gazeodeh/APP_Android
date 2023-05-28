@@ -6,9 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.app_android.usermanagment.LoginFragment;
@@ -27,7 +29,11 @@ import mainpackage.TentFragment;
  */
 public class MainFragment extends Fragment {
 
-    private ImageButton fire,tent,googlemap,food,list;
+    private ImageButton fire;
+     private ImageButton tent;
+     private ImageButton googlemap;
+     private ImageButton food;
+     private ImageButton list;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -47,16 +53,16 @@ public class MainFragment extends Fragment {
         food=getView().findViewById(R.id.food);
         list=getView().findViewById(R.id.list);
 
-fire.setOnClickListener(new View.OnClickListener(){
+fire.setOnClickListener(new View.OnClickListener() {
 
-        public void onClick(View view) {
-            FireFragment fireFragment=new FireFragment();
-            FragmentManager manager=getFragmentManager();
-            manager.beginTransaction().replace(R.id.frameLayout,FireFragment,FireFragment.getTag()).commit();
+                            public void onClick(View view) {
+                                FireFragment fireFragment = new FireFragment();
+                                FragmentManager manager = getFragmentManager();
+                                manager.beginTransaction().replace(R.id.frameLayout, fireFragment, fireFragment.getTag()).commit();
 
 
-        }
-
+                            }
+                        });
 
 
 tent.setOnClickListener(new View.OnClickListener()
@@ -67,56 +73,54 @@ tent.setOnClickListener(new View.OnClickListener()
         {
             TentFragment tentFragment = new TentFragment();
             FragmentManager manager = getFragmentManager();
-            manager.beginTransaction().replace(R.id.frameLayout, TentFragment, TentFragment.getTag()).commit();
+            manager.beginTransaction().replace(R.id.frameLayout, tentFragment, tentFragment.getTag()).commit();
 
 
         }
 
-    }
-food.setOnClickListener(new View.OnClickListener()
+    });
 
-    {
+food.setOnClickListener(new View.OnClickListener() {
 
-        public void onClick (View view){
+    public void onClick(View view) {
         FoodFragment foodFragment = new FoodFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, FoodFragment, FoodFragment.getTag()).commit();
+        manager.beginTransaction().replace(R.id.frameLayout, foodFragment, foodFragment.getTag()).commit();
 
 
     }
 
+});
 
-    }
+
 googlemap.setOnClickListener(new View.OnClickListener()
 
     {
-
         public void onClick (View view)
         {
             GooglemapFragment googlemapFragment = new GooglemapFragment();
             FragmentManager manager = getFragmentManager();
-            manager.beginTransaction().replace(R.id.frameLayout, GooglemapFragment, GooglemapFragment.getTag()).commit();
+            manager.beginTransaction().replace(R.id.frameLayout, googlemapFragment, googlemapFragment.getTag()).commit();
 
 
         }
 
-
-    }
+    });
 list.setOnClickListener(new View.OnClickListener()
 
     {
 
         public void onClick (View view){
-        thingsuserneedclass thingsuserneedclass = new thingsuserneedclass();
+            thingtheuserneedFragment thingtheuserneedFragment = new thingtheuserneedFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, thingsuserneedclass, thingsuserneedclass.getTag()).commit();
+        manager.beginTransaction().replace(R.id.frameLayout, thingtheuserneedFragment, thingtheuserneedFragment.getTag()).commit();
 
 
     }
 
-    }
+    });
 
-
+                        }
 
 
         /**
@@ -153,3 +157,4 @@ list.setOnClickListener(new View.OnClickListener()
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
+}

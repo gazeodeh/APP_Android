@@ -7,22 +7,10 @@ import android.widget.EditText;
 
 public class Privatedetails {
 
-
-
-private Image img;
-private Button bt;
-    protected void onCreate()
-    {
-
-img=getView().findViewById(R.id.perphoto);
-bt=getView().findViewById(R.id.finishbtn);
-    }
-    public class personaldetailspenefactor {
         private String EMAILS;
         private String PHONENUM;
 
-        EMAILS=getView().findViewById(R.id.namebenefactor);
-        PHONENUM=getView().findViewById(R.id.phonebenefactor);
+
 
 
 
@@ -35,11 +23,7 @@ bt=getView().findViewById(R.id.finishbtn);
         public String getEMAILS() {
             return EMAILS;
         }
-
-
-
-
-        public  personaldetailspenefactor(String EMAILS, String PHONENUM) {
+        public  Privatedetails(String EMAILS, String PHONENUM) {
             this.EMAILS=EMAILS;
             this.PHONENUM=PHONENUM;
 
@@ -60,4 +44,3 @@ bt=getView().findViewById(R.id.finishbtn);
 
 
     }
-}

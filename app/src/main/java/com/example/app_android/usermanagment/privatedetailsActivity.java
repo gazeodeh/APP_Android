@@ -2,6 +2,8 @@ package com.example.app_android.usermanagment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.app_android.MainFragment;
 import com.example.app_android.R;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -70,8 +73,18 @@ public class privatedetailsActivity extends AppCompatActivity {
 //
 
         adddata.setOnClickListener(new View.OnClickListener() {
+            //نقل من كلاس الى فراجمنت ؟؟
             @Override
             public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(android.R.id.content, new MainFragment()).commit();
+            }
+
+
+               /* FragmentTransaction ft=getSupportFragmentManager().beginTransaction
+                        ();
+                ft.replace(R.id.frameLayout,new MainFragment());
+                ft.commit();
             //    try {
                   /*  per per = new personaldetailspenefactor(usernamme, phonenum);
                     db.collection("users")
@@ -93,6 +106,7 @@ public class privatedetailsActivity extends AppCompatActivity {
                             });
 
 
+
                 }
                 catch (Exception ex){
 
@@ -100,10 +114,10 @@ public class privatedetailsActivity extends AppCompatActivity {
                 }*/
 
 
-             //  Intent intent = new Intent(privatedetailsActivity.this, RecyclerViewActivity.class);
-              //  startActivity(intent);
 
-            }
-   });
-}}
+
+         }
+
+         
+}
 
