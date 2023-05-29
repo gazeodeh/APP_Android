@@ -31,23 +31,27 @@ public class GooglemapFragment extends Fragment {
     private String mParam2;
 private TextView tv1,tv2;
 private Button bt;
-    public GooglemapFragment() {
-        tv1=getView().findViewById(R.id.tv11);
-        tv2=getView().findViewById(R.id.tv22);
-        bt=getView().findViewById(R.id.bt11);
+public void func(){
+    tv1=getView().findViewById(R.id.tv11);
+    tv2=getView().findViewById(R.id.tv22);
+    bt=getView().findViewById(R.id.bt11);
 
-bt.setOnClickListener(new View.OnClickListener()
+    bt.setOnClickListener(new View.OnClickListener()
 
     {
 
         public void onClick (View view){
-        MainFragment mainFragment = new MainFragment();
-        FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, mainFragment, mainFragment.getTag()).commit();
+            MainFragment mainFragment = new MainFragment();
+            FragmentManager manager = getFragmentManager();
+            manager.beginTransaction().replace(R.id.frameLayout, mainFragment, mainFragment.getTag()).commit();
 
 
-    }
+        }
     });
+
+}
+    public GooglemapFragment() {
+
     }
 
     /**
@@ -82,5 +86,11 @@ bt.setOnClickListener(new View.OnClickListener()
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_googlemap, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        func();
     }
 }

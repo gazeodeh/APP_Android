@@ -32,22 +32,25 @@ public class FoodFragment extends Fragment {
     private TextView textView,textView1;
     private Button bt;
 
-    public FoodFragment() {
+    public void func(){
         textView=getView().findViewById(R.id.textView3);
         textView1=getView().findViewById(R.id.textView4);
         bt=getView().findViewById(R.id.button);
 
-bt.setOnClickListener(new View.OnClickListener()
+        bt.setOnClickListener(new View.OnClickListener()
 
-    {
-        public void onClick (View view){
-        MainFragment mainFragment = new MainFragment();
-        FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, mainFragment, mainFragment.getTag()).commit();
+        {
+            public void onClick (View view){
+                MainFragment mainFragment = new MainFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.frameLayout, mainFragment, mainFragment.getTag()).commit();
 
 
+            }
+        });
     }
-    });
+    public FoodFragment() {
+
     }
 
     /**
@@ -82,5 +85,11 @@ bt.setOnClickListener(new View.OnClickListener()
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_food, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        func();
     }
 }

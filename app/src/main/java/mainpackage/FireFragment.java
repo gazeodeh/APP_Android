@@ -29,23 +29,27 @@ public class FireFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-   private TextView tv1,tv2;
+
     private Button bt;
+
+    public void func(){
+        bt=getView().findViewById(R.id.bt);
+
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MainFragment MainFragment = new MainFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
+
+            }
+        });
+    }
     public FireFragment() {
-        tv1=getView().findViewById(R.id.tvf);
-        tv2=getView().findViewById(R.id.tvb);
-        bt=getView().findViewById(R.id.bt1);
 
-bt.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
 
-                              MainFragment MainFragment = new MainFragment();
-                              FragmentManager manager = getFragmentManager();
-                              manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
-
-                          }
-                      });}
+        }
 
 
     /**
@@ -81,5 +85,9 @@ bt.setOnClickListener(new View.OnClickListener() {
         return inflater.inflate(R.layout.fragment_fire, container, false);
     }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        func();
+    }
 }
