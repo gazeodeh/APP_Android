@@ -24,13 +24,6 @@ import mainpackage.TentFragment;
  */
 public class MainFragment extends Fragment {
 
-    private ImageButton fire;
-     private ImageButton tent;
-     private ImageButton googlemap;
-     private ImageButton food;
-     private ImageButton list;
-
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,28 +32,34 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageButton firee;
+    private ImageButton tentt;
+    private ImageButton googlemapp;
+    private ImageButton foodd;
+    private ImageButton listt;
 
-    public MainFragment() {
+    public MainFragment() {}
+    public void func(){
 
-        fire=getView().findViewById(R.id.Fire);
-        tent=getView().findViewById(R.id.tent);
-        googlemap=getView().findViewById(R.id.googlemap);
-        food=getView().findViewById(R.id.food);
-        list=getView().findViewById(R.id.list);
+        firee=getView().findViewById(R.id.Firee);
+        tentt=getView().findViewById(R.id.tent);
+        googlemapp=getView().findViewById(R.id.googlemap);
+        foodd=getView().findViewById(R.id.food);
+        listt=getView().findViewById(R.id.list);
 
-        fire.setOnClickListener(new View.OnClickListener() {
+        firee.setOnClickListener(new View.OnClickListener() {
 
-                            public void onClick(View view) {
-                                FireFragment fireFragment = new FireFragment();
-                                FragmentManager manager = getFragmentManager();
-                                manager.beginTransaction().replace(R.id.frameLayout, fireFragment, fireFragment.getTag()).commit();
-
-
-                            }
-                        });
+     public void onClick(View view) {
+       FireFragment fireFragment = new FireFragment();
+       FragmentManager manager = getFragmentManager();
+       manager.beginTransaction().replace(R.id.frameLayout, fireFragment, fireFragment.getTag()).commit();
 
 
-tent.setOnClickListener(new View.OnClickListener()
+     }
+        });
+
+
+tentt.setOnClickListener(new View.OnClickListener()
 
     {
 
@@ -75,7 +74,7 @@ tent.setOnClickListener(new View.OnClickListener()
 
     });
 
-food.setOnClickListener(new View.OnClickListener() {
+foodd.setOnClickListener(new View.OnClickListener() {
 
     public void onClick(View view) {
         FoodFragment foodFragment = new FoodFragment();
@@ -88,7 +87,7 @@ food.setOnClickListener(new View.OnClickListener() {
 });
 
 
-googlemap.setOnClickListener(new View.OnClickListener()
+googlemapp.setOnClickListener(new View.OnClickListener()
 
     {
         public void onClick (View view)
@@ -101,14 +100,14 @@ googlemap.setOnClickListener(new View.OnClickListener()
         }
 
     });
-list.setOnClickListener(new View.OnClickListener()
+listt.setOnClickListener(new View.OnClickListener()
 
     {
 
         public void onClick (View view){
-            thingtheuserneedFragment thingtheuserneedFragment = new thingtheuserneedFragment();
+        thingsuserneedpresentationFragment thingsuserneedpresentationFragment = new thingsuserneedpresentationFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.frameLayout, thingtheuserneedFragment, thingtheuserneedFragment.getTag()).commit();
+        manager.beginTransaction().replace(R.id.frameLayout, thingsuserneedpresentationFragment, thingsuserneedpresentationFragment.getTag()).commit();
 
 
     }
@@ -152,4 +151,9 @@ list.setOnClickListener(new View.OnClickListener()
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        func();
+    }
 }

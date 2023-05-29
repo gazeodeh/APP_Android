@@ -81,9 +81,9 @@ public class LoginFragment extends Fragment {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             Toast.makeText(getContext(), "User signed in successfully.", Toast.LENGTH_SHORT).show();
-                            MainFragment MainFragment=new MainFragment();
+                            thingtheuserneedFragment thingtheuserneedFragment=new thingtheuserneedFragment();
                             FragmentManager manager=getFragmentManager();
-                            manager.beginTransaction().replace(R.id.frameLayout,MainFragment,MainFragment.getTag()).commit();
+                            manager.beginTransaction().replace(R.id.frameLayout,thingtheuserneedFragment,thingtheuserneedFragment.getTag()).commit();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

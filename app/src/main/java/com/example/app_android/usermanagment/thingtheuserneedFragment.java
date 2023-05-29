@@ -41,52 +41,71 @@ public class thingtheuserneedFragment extends Fragment {
     private EditText second;
     private EditText third;
     private EditText fourth;
-    private Button remidbtn;
+   private Button remindthing;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public void func(){
-        String etfirst,etsecond,etthird,etfourth;
+
         First=getView().findViewById(R.id.firstthing);
         second=getView().findViewById(R.id.secindthing);
         third=getView().findViewById(R.id.thirdthing);
         fourth=getView().findViewById(R.id.fourththing);
-        remidbtn=getView().findViewById(R.id.remindmebtn);
+        remindthing=getView().findViewById(R.id.remindmebtn);
 
-           etfirst=First.getText().toString();
-           etsecond=second.getText().toString();
-           etthird=third.getText().toString();
-           etfourth=fourth.getText().toString();
+        remindthing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String etfirst,etsecond,etthird,etfourth;
+                etfirst=First.getText().toString();
+                etsecond=second.getText().toString();
+                etthird=third.getText().toString();
+                etfourth=fourth.getText().toString();
 
-           if (etfirst==null&&etsecond==null&&etthird==null&&etfourth==null){
-               Toast.makeText(getContext(), "somthing null!!", Toast.LENGTH_SHORT).show();
-           }
-           else {
+                if (etfirst.trim().isEmpty()&&etsecond.trim().isEmpty()&&etthird.trim().isEmpty()&&etfourth.trim().isEmpty()){
+                    Toast.makeText(getContext(), "somthing null!!", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    MainFragment MainFragment=new MainFragment();
+                    FragmentManager manager=getFragmentManager();
+                    manager.beginTransaction().replace(R.id.frameLayout,MainFragment,MainFragment.getTag()).commit();
+                }
+
+                try {
+                    thingsuserneedclass thingsuserneed = new thingsuserneedclass(etfirst, etsecond, etthird, etfourth);
+
+                    db.collection("thingsuserneed")
+                            .add(thingsuserneed).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Toast.makeText(getContext(), "data was saved", Toast.LENGTH_SHORT).show();
+
+                                    MainFragment MainFragment = new MainFragment();
+                                    FragmentManager manager = getFragmentManager();
+                                    manager.beginTransaction().replace(R.id.frameLayout, MainFragment, MainFragment.getTag()).commit();
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+
+                                    Toast.makeText(getContext(), "data not saved try another data", Toast.LENGTH_SHORT).show();
+                                    //try to save
+                                    Log.e("", e.getMessage());
+                                }
+                            });
 
 
-               thingsuserneedclass thingsuserneed=new thingsuserneedclass(etfirst,etsecond,etthird,etfourth);
+                }
+                catch (Exception ex){
+                    Log.e("",ex.getMessage());
+                }
+            }
+        });
 
-               db.collection("users")
-                       .add(thingsuserneed).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                           @Override
-                           public void onSuccess(DocumentReference documentReference) {
-                               Toast.makeText(getContext(), "data was saved", Toast.LENGTH_SHORT).show();
 
-                               MainFragment MainFragment=new MainFragment();
-                               FragmentManager manager=getFragmentManager();
-                               manager.beginTransaction().replace(R.id.frameLayout,MainFragment,MainFragment.getTag()).commit();
 
-                           }
-                       }).addOnFailureListener(new OnFailureListener() {
-                           @Override
-                           public void onFailure(@NonNull Exception e) {
-
-                               Toast.makeText(getContext(), "data not saved try another data", Toast.LENGTH_SHORT).show();
-                               //try to save
-                               Log.e("",e.getMessage());
-                           }
-                       });
-
-           }
 
 
 
@@ -133,5 +152,11 @@ public class thingtheuserneedFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_thingtheuserneed, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        func();
     }
 }

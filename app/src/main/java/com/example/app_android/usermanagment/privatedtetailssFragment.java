@@ -40,10 +40,7 @@ public class privatedtetailssFragment extends Fragment {
     private String mParam2;
     private EditText username;
     private EditText phonenumber;
-
-    private ImageView imageView;
-    private String onselctspinner;
-    private Button adddata;
+    private Button data;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -51,15 +48,11 @@ public class privatedtetailssFragment extends Fragment {
 
         username = getView().findViewById(R.id.namebenefactor);
         phonenumber = getView().findViewById(R.id.phonebenefactor);
+        data = getView().findViewById(R.id.savedatabtn);
 
-        imageView = getView().findViewById(R.id.Parephoto);
-        adddata = getView().findViewById(R.id.finishbtn);
-
-        adddata.setOnClickListener(new View.OnClickListener() {
-            //نقل من كلاس الى فراجمنت ؟؟
+        data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try {
                     String usernamme, phonenum;
 
@@ -91,7 +84,6 @@ public class privatedtetailssFragment extends Fragment {
 
                     Log.e("", ex.getMessage());
                 }
-
 
             }
 
