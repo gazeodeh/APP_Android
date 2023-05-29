@@ -2,20 +2,15 @@ package com.example.app_android;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.app_android.usermanagment.LoginFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.app_android.usermanagment.thingtheuserneedFragment;
 
 import mainpackage.FireFragment;
 import mainpackage.FoodFragment;
@@ -53,7 +48,7 @@ public class MainFragment extends Fragment {
         food=getView().findViewById(R.id.food);
         list=getView().findViewById(R.id.list);
 
-fire.setOnClickListener(new View.OnClickListener() {
+        fire.setOnClickListener(new View.OnClickListener() {
 
                             public void onClick(View view) {
                                 FireFragment fireFragment = new FireFragment();

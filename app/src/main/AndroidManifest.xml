@@ -15,9 +15,6 @@
             android:name=".framelayoutActivity"
             android:exported="false" />
         <activity
-            android:name=".usermanagment.privatedetailsActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

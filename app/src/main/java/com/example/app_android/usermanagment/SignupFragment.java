@@ -60,6 +60,9 @@ public class SignupFragment extends Fragment {
                                     Toast.makeText(getContext(), "Account created.", Toast.LENGTH_SHORT).show();
                                     if(mAuth.getCurrentUser()!=null){
                                         mAuth.signOut();
+                                        privatedtetailssFragment privatedtetailssFragment=new privatedtetailssFragment();
+                                        FragmentManager manager=getFragmentManager();
+                                        manager.beginTransaction().replace(R.id.frameLayout,privatedtetailssFragment,privatedtetailssFragment.getTag()).commit();
                                     }
                                 }
                             })
@@ -115,8 +118,6 @@ public class SignupFragment extends Fragment {
 
                 createUser();
 
-                Intent i=new Intent(getActivity(), privatedetailsActivity.class);
-                startActivity(i);
 
             }
         });

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.app_android.MainFragment;
 import com.example.app_android.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -80,7 +81,9 @@ public class LoginFragment extends Fragment {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             Toast.makeText(getContext(), "User signed in successfully.", Toast.LENGTH_SHORT).show();
-                            //go to personal page
+                            MainFragment MainFragment=new MainFragment();
+                            FragmentManager manager=getFragmentManager();
+                            manager.beginTransaction().replace(R.id.frameLayout,MainFragment,MainFragment.getTag()).commit();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
