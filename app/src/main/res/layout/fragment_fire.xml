@@ -21,7 +21,7 @@
             android:layout_marginBottom="39dp"
             android:text="اشعال النار
 "
-            android:textColor="@color/black"
+            android:textColor="@color/green"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/tvb"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
             android:layout_marginTop="242dp"
             android:layout_marginBottom="220dp"
             android:text=" احضار اغصان جافخ وعشب جاف واستعمال الوقود واشعالها"
-            android:textColor="@color/black"
+            android:textColor="@color/green"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/bt"
             app:layout_constraintStart_toStartOf="parent"
